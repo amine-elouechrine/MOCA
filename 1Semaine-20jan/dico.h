@@ -1,6 +1,5 @@
 #ifndef DICO_H
 #define DICO_H
-
 #include "word.h"
 
 typedef struct dico dico;

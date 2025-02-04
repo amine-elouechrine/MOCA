@@ -58,6 +58,26 @@ void incWord(emplacement_t* location, unsigned int line, unsigned int colonne) {
   tempLocation->next = newLocation;
 }
 
+int compareWord(mot_data_t* w1, mot_data_t* w2) {
+  if (w1 == NULL) {
+    return 1;
+  } else if (w2 == NULL) {
+    return -1;
+  } else {
+    char* word1 = w1->lemot;   
+    char* word2 = w2->lemot;
+    int minSize = (strlen(word1)<strlen(word2))?strlen(word1):strlen(word2);
+    int i= 0;
+    int pos = 0;
+    while(i<minSize && pos == 0) {
+      pos = (word1[i]<word2[i])?-1:(word1[i]>word2[i])?1:0;
+      i++;
+    }
+    return (pos == 0 && strlen(word1) < strlen(word2))?-1:(pos == 0 && strlen(word1) > strlen(word2))?1:pos;
+  }
+}
+
+
 void displayWord(mot_data_t* word, FILE *filedes) {
   if (word == NULL) {
   } else {

@@ -1,11 +1,13 @@
 #ifndef WORD_H
 #define WORD_H
+#define SEP " ,.-"   
+#include <stdio.h>
 
 #define maxSizeWord 25
 
-char *separators=SEP; 
-unsigned int current_line=1;
-unsigned int current_col=1; 
+extern char *separators; 
+extern unsigned int current_line;
+extern unsigned int current_col; 
 
 typedef struct emplacement_t emplacement_t;
 struct emplacement_t {
@@ -30,5 +32,6 @@ struct mot_t {
 char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol);
 void incWord(emplacement_t* location, unsigned int line, unsigned int colonne);
 void displayWord(mot_data_t* word, FILE *filedes);
+int compareWord(mot_data_t* w1, mot_data_t* w2);
 
 #endif

@@ -1,7 +1,8 @@
 #include "dico.h"
-#include "word.h"
+#include "hash.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define TEXTE "hugo1.txt"
 #define DICORES "dictionnaires.txt"

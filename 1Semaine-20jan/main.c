@@ -4,6 +4,7 @@
 #include "word.h"
 #include "hash.h"
 
+
 #ifdef FICJSON
 #include "json.h"
 #endif
