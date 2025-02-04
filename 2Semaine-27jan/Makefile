@@ -19,9 +19,11 @@ TARGET = analyseur
 all: $(BIN_DIR)/$(TARGET)
 
 $(BIN_DIR)/$(TARGET): $(OBJS)
+	@mkdir -p bin
 	$(CC)  $(OBJS) -o $(BIN_DIR)/$(TARGET)  $(LD_FLAGS)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+	@mkdir -p obj
 	$(CC) -c $(CFLAGS)  $< -o $@
 
 clean:
