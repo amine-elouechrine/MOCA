@@ -1,0 +1,23 @@
+\doxysection{dico Struct Reference}
+\hypertarget{structdico}{}\label{structdico}\index{dico@{dico}}
+
+
+Collaboration diagram for dico\+:
+% FIG 0
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structdico_ae751c3ce44c7f1945143bcbc088089bb}\label{structdico_ae751c3ce44c7f1945143bcbc088089bb} 
+\mbox{\hyperlink{structmot__t}{mot\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries mot}
+\item 
+\Hypertarget{structdico_afd99d534b49a8772ac38880cc5fa76a1}\label{structdico_afd99d534b49a8772ac38880cc5fa76a1} 
+\mbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*} {\bfseries fg}
+\item 
+\Hypertarget{structdico_ae77fcc543add794b3a5272c7fda5f01f}\label{structdico_ae77fcc543add794b3a5272c7fda5f01f} 
+\mbox{\hyperlink{structdico}{dico}} \texorpdfstring{$\ast$}{*} {\bfseries fd}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dico.\+h\end{DoxyCompactItemize}
