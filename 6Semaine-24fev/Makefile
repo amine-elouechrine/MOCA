@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall -Iinclude -fPIC $(OPTGCOV)
+CFLAGS = -g -Wall -Iinclude -fPIC $(OPTGCOV) 
 SRC_DIR=src
 INC_DIR=include
 OBJ_DIR=obj

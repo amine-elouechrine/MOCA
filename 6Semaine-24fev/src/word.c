@@ -60,9 +60,9 @@ void incWord(emplacement_t* location, unsigned int line, unsigned int colonne) {
 }
 
 int compareWord(mot_data_t* w1, mot_data_t* w2) {
-  if (w1 == NULL) {
+  if (w1 == NULL || w1->lemot == NULL) {
     return 1;
-  } else if (w2 == NULL) {
+  } else if (w2 == NULL || w2->lemot == NULL) {
     return -1;
   } else {
     char* word1 = w1->lemot;   
@@ -94,4 +94,18 @@ void displayWord(mot_data_t* word, FILE *filedes) {
     }
     fprintf(filedes,"\n");
   }
+}
+void freeEmplacements(emplacement_t* tete) {
+  emplacement_t* courant = tete;
+  emplacement_t* suivant;
+  while (courant != NULL) {
+      suivant = courant->next; 
+      free(courant);          
+      courant = suivant;      
+  }
+}
+
+void freeMotData(mot_data_t* motData) {
+  if (motData == NULL) return;
+  freeEmplacements(motData->tete_liste); // Libérer la liste d'emplacements
 }

@@ -74,4 +74,8 @@ void displayWord(mot_data_t* word, FILE *filedes);
  */
 int compareWord(mot_data_t* w1, mot_data_t* w2);
 
+void freeEmplacements(emplacement_t* tete) ;
+
+void freeMotData(mot_data_t* motData) ;
+
 #endif

@@ -39,6 +39,7 @@ void addToDico(dico** dictionary, char* word, unsigned int* line, unsigned int* 
   newLinkWord->lehash = hash(word);
   location->line = *line;
   location -> colonne = *colonne;
+  location->next = NULL;
   newLinkWord->data.tete_liste = location;
   newLinkWord->data.queue_liste = location;
   if(*dictionary==NULL) {
@@ -89,7 +90,9 @@ void deserializeDico(dico** dic, mot_data_t *elt) {
     *dic = temp;
     return;
   }
-  if (compareWord(&((*dic)->mot->data),(mot_data_t*)newLinkWord)>0) {   
+
+  if (compareWord(&((*dic)->mot->data),&(newLinkWord->data))>0) {  
+    
     deserializeDico(&(*dic)->fg, elt);
   }
   else
