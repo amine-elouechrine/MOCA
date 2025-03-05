@@ -1,0 +1,46 @@
+\doxysection{word.\+h}
+\hypertarget{word_8h_source}{}\label{word_8h_source}\index{include/word.h@{include/word.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORD\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ SEP\ "{}\ ,.-\/"{}\ \ \ }}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ maxSizeWord\ 25}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *separators;\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ current\_line;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ current\_col;\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structemplacement__t}{emplacement\_t}}\ \mbox{\hyperlink{structemplacement__t}{emplacement\_t}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structemplacement__t}{emplacement\_t}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ line;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ colonne;}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{structemplacement__t}{emplacement\_t}}*\ next;}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}\ \mbox{\hyperlink{structmot__data__t}{mot\_data\_t}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}\ \{}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{char}\ lemot[maxSizeWord];}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{structemplacement__t}{emplacement\_t}}*\ tete\_liste;}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{structemplacement__t}{emplacement\_t}}*\ queue\_liste;}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmot__t}{mot\_t}}\ \mbox{\hyperlink{structmot__t}{mot\_t}};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmot__t}{mot\_t}}\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{int}\ lehash;}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}\ data;}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{char}\ *next\_word(FILE\ *f,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *nblin,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *nbcol);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ incWord(\mbox{\hyperlink{structemplacement__t}{emplacement\_t}}*\ location,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ colonne);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ displayWord(\mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}*\ word,\ FILE\ *filedes);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ compareWord(\mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}*\ w1,\ \mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}*\ w2);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
