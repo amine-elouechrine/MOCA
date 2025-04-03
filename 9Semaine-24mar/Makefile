@@ -42,6 +42,11 @@ ifdef USE_AFL
 CFLAGS += -fsanitize=address -fsanitize=undefined -O0
 endif
 
+#options pour gprof
+ifdef USE_GPROF
+CFLAGS += -pg
+LD_FLAGS += -pg
+endif
 SRCS = $(wildcard $(SRC_DIR)/*.c)   
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o,$(SRCS))
 
@@ -61,7 +66,12 @@ $(SHARED_LIB): $(OBJS)
 	@mkdir -p $(LIB_DIR)
 	$(CC) $(CFLAGS) -shared -o $@ $^ -lgcov
 
-# Compilation avec option
+
+ifdef USE_GPROF
+$(BIN_DIR)/$(TARGET): $(OBJS)
+	@mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LD_FLAGS)
+else
 ifdef USE_STATIC
 $(BIN_DIR)/$(TARGET): $(STATIC_LIB) $(SRC_DIR)/main.c
 	@mkdir -p $(BIN_DIR)
@@ -70,7 +80,10 @@ else
 $(BIN_DIR)/$(TARGET): $(SHARED_LIB) $(SRC_DIR)/main.c
 	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/main.c -L$(LIB_DIR) -ldico $(LD_FLAGS)
+
 endif
+endif
+
 
 ifdef USE_AFL
 	AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 AFL_SKIP_CPUFREQ=1 /home/m/mounlaur/AFL/afl-2.52b/afl-fuzz -m none -i in/ -o out/ ./bin/analyseur @@

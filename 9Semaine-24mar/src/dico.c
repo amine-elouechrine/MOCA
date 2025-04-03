@@ -9,28 +9,45 @@
 #define DICORES "dictionnaires.txt"
 
 void insertDico(dico** dictionary, mot_t* linkWord) {
-  dico* newDictionary = (dico*) malloc(sizeof(dico));
-  newDictionary = *dictionary;
-  while(newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))>0) {
-    *dictionary = newDictionary;
-    insertDico(&(newDictionary->fg),linkWord);
-    return;
-  }
-  while(newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))<0) {
-    *dictionary = newDictionary;
-    insertDico(&(newDictionary->fd),linkWord);
-    return;
-  }
-  if (newDictionary != NULL && compareWord(&(newDictionary->mot->data),&(linkWord->data))==0) { 
-    incWord(newDictionary->mot->data.queue_liste,linkWord->data.tete_liste->line,linkWord->data.tete_liste->colonne);
-  }
-  else { 
-    newDictionary = (dico*) malloc(sizeof(dico));
-    newDictionary->mot = linkWord;
-    newDictionary->fg = newDictionary->fd = NULL;
-    *dictionary = newDictionary;
-  }
+    // Base case: if we've reached a NULL pointer, create a new node here
+    if (*dictionary == NULL) {
+        dico* newDictionary = (dico*)malloc(sizeof(dico));
+        if (newDictionary == NULL) {
+            fprintf(stderr, "Erreur d'allocation mémoire\n");
+            exit(EXIT_FAILURE);
+        }
+        newDictionary->mot = linkWord;
+        newDictionary->fg = NULL;
+        newDictionary->fd = NULL;
+        *dictionary = newDictionary;
+        return;
+    }
+
+    // Compare the word to the current node
+    int compareResult = compareWord(&((*dictionary)->mot->data), &(linkWord->data));
+
+    if (compareResult > 0) {
+        // If current word is greater, go left
+        insertDico(&((*dictionary)->fg), linkWord);
+    } else if (compareResult < 0) {
+        // If current word is smaller, go right
+        insertDico(&((*dictionary)->fd), linkWord);
+    } else {
+        // Word already exists, add new occurrence to the list
+        emplacement_t* newTail = incWord(
+                (*dictionary)->mot->data.queue_liste,
+                linkWord->data.tete_liste->line,
+                linkWord->data.tete_liste->colonne
+        );
+
+        // Update the queue pointer to the new tail
+        (*dictionary)->mot->data.queue_liste = newTail;
+
+        // Free the redundant mot_t structure as we're only using its location data
+        free(linkWord);
+    }
 }
+
 
 void addToDico(dico** dictionary, char* word, unsigned int* line, unsigned int* colonne) {
   mot_t* newLinkWord = (mot_t*) malloc(sizeof(mot_t));

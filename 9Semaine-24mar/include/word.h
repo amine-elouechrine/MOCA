@@ -51,7 +51,7 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol);
  * @param line Numéro de la ligne.
  * @param colonne Numéro de la colonne.
  */
-void incWord(emplacement_t* location, unsigned int line, unsigned int colonne);
+emplacement_t * incWord(emplacement_t* location, unsigned int line, unsigned int colonne);
 
 /**
  * @brief Affiche un mot dans un fichier.

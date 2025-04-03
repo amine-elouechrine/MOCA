@@ -41,7 +41,7 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol) {
 
   // Lire le mot
   while (i < sizeof(s) - 1 && (c = fgetc(f)) != EOF && strchr(separators, c) == NULL && c != '\n' && isprint(c)) {
-      s[i++] = c;
+       s[i++] = c;
       startc++;
   }
   s[i] = '\0'; // Terminaison de chaîne
@@ -65,22 +65,24 @@ char *next_word(FILE *f, unsigned int *nblin, unsigned int *nbcol) {
   return res;
 }
 
-void incWord(emplacement_t* location, unsigned int line, unsigned int colonne) {
-  emplacement_t* newLocation = (emplacement_t*) malloc(sizeof(emplacement_t));
-  emplacement_t* tempLocation = (emplacement_t*) malloc(sizeof(emplacement_t));
-  if (newLocation == NULL || tempLocation == NULL) {
-    printf("Erreur d'allocation de memoire\n");
-    exit(1);
-  }
-  tempLocation = location;
-  newLocation->next = NULL;
-  newLocation->line = line;
-  newLocation->colonne = colonne;
-  while(tempLocation->next != NULL) {
-    tempLocation = tempLocation->next;
-  }
-  tempLocation->next = newLocation;
+// Add a new location to the end of a location list and return the new tail
+emplacement_t* incWord(emplacement_t* queue, unsigned int line, unsigned int colonne) {
+    emplacement_t* newLocation = (emplacement_t*)malloc(sizeof(emplacement_t));
+    if (newLocation == NULL) {
+        fprintf(stderr, "Erreur d'allocation mémoire\n");
+        exit(EXIT_FAILURE);
+    }
+    newLocation->line = line;
+    newLocation->colonne = colonne;
+    newLocation->next = NULL;
+    // Since we're receiving the queue pointer, we can directly append to it
+    queue->next = newLocation;
+
+    // Return the new tail
+    return newLocation;
 }
+
+
 
 int compareWord(mot_data_t* w1, mot_data_t* w2) {
   if (w1 == NULL || w1->lemot == NULL) {
