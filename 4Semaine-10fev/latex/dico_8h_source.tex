@@ -1,0 +1,29 @@
+\doxysection{dico.\+h}
+\hypertarget{dico_8h_source}{}\label{dico_8h_source}\index{include/dico.h@{include/dico.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DICO\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DICO\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}word.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdico}{dico}}\ \mbox{\hyperlink{structdico}{dico}};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdico}{dico}}\ \{}
+\DoxyCodeLine{00007\ \ \ \mbox{\hyperlink{structmot__t}{mot\_t}}*\ mot;}
+\DoxyCodeLine{00008\ \ \ \mbox{\hyperlink{structdico}{dico}}\ *fg,\ *fd;}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ insertDico(\mbox{\hyperlink{structdico}{dico}}**\ dictionary,\ \mbox{\hyperlink{structmot__t}{mot\_t}}*\ linkWord);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ addToDico(\mbox{\hyperlink{structdico}{dico}}**\ dictionary,\ \textcolor{keywordtype}{char}*\ word,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ line,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ colonne);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ displayDico(\mbox{\hyperlink{structdico}{dico}}*\ dictionary);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ serializeDico(\mbox{\hyperlink{structdico}{dico}}\ *\ dictionary,\ \mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}\ **table);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ deserializeDico(\mbox{\hyperlink{structdico}{dico}}**\ dic,\ \mbox{\hyperlink{structmot__data__t}{mot\_data\_t}}\ *elt);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ displayNodes(\mbox{\hyperlink{structdico}{dico}}\ *d,\ FILE*\ f);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

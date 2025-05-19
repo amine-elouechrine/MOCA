@@ -72,7 +72,7 @@ $(BIN_DIR)/$(TARGET): $(OBJS)
 	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $@ $^ $(LD_FLAGS)
 else
-ifdef USE_STATIC
+ifdef  
 $(BIN_DIR)/$(TARGET): $(STATIC_LIB) $(SRC_DIR)/main.c
 	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/main.c -L$(LIB_DIR) -ldico $(LD_FLAGS)
@@ -80,7 +80,6 @@ else
 $(BIN_DIR)/$(TARGET): $(SHARED_LIB) $(SRC_DIR)/main.c
 	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/main.c -L$(LIB_DIR) -ldico $(LD_FLAGS)
-
 endif
 endif
 
